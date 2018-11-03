@@ -1,0 +1,138 @@
+---
+---
+
+<!Doctype html>
+<html lang="en">
+  <head>
+    <title>Programming Language Logos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="public/favicon.gif" type="image/gif" >
+    <title>Programming Languages Logos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="logos.css" rel="stylesheet">
+    <link href="public/main.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body class="layout-default" id="content" >
+    <nav id="navbar" class="navbar has-shadow is-spaced">
+ <div class="container">
+ <div class="navbar-brand">
+   <a class="navbar-item" href="https://bulma.io">
+     <img src="https://github.com/abranhe/programming-languages-logos/raw/master/src/programming-languages.gif">
+     <img src="https://cdn.abranhe.com/projects/porgramming-languages-logos/logo.svg">
+   </a>
+
+   <a class="navbar-item is-hidden-desktop" href="https://github.com/abranhe/programming-languages-logos" target="_blank">
+     <span class="icon" style="color: #333;">
+       <i class="fab fa-github"></i>
+     </span>
+   </a>
+
+   <a class="navbar-item is-hidden-desktop" href="https://twitter.com/jgthms" target="_blank">
+     <span class="icon" style="color: #55acee;">
+       <i class="fab fa-lg fa-twitter"></i>
+     </span>
+   </a>
+
+   <div id="navbarBurger" class="navbar-burger burger" data-target="navMenuMore">
+     <span></span>
+     <span></span>
+     <span></span>
+   </div>
+ </div>
+
+ <a class="navbar-item bd-navbar-item-blog " href="https://github.com/abranhe/programming-languages-logos-site/blob/master/readme.md#readme" target="_blank">
+   <span>How to use it?</span>
+</a>
+
+ <div id="navMenuMore" class="navbar-menu">
+   <div class="navbar-start">
+
+     <div class="navbar-item has-dropdown is-hoverable">
+
+       <a class="navbar-link" href="/">
+         Donate
+       </a>
+
+       <div id="moreDropdown" class="navbar-dropdown">
+         <a class="navbar-item " href="https://paypal.me/abranhe">
+             <span>
+               <span class="icon has-text-link">
+                 <i class="fab fa-paypal"></i>
+               </span>
+               <strong>Paypal</strong>
+             </span>
+           </a>
+           <hr class="navbar-divider">
+           <a class="navbar-item " href="https://patreon.com/abranhe">
+             <span>
+               <span class="icon has-text-danger">
+                 <i class="fab fa-patreon"></i>
+               </span>
+               <strong>Patreon</strong>
+             </span>
+           </a>
+           <hr class="navbar-divider">
+            <a class="navbar-item " href="https://cash.me/$abranhe">
+             <span>
+               <span class="icon has-text-success">
+                 <i class="fas fa-dollar-sign"></i>
+               </span>
+               <strong>Cash.me</strong>
+             </span>
+           </a>
+       </div>
+     </div>
+   </div>
+   <div class="navbar-end">
+     <input class="input search" type="text" placeholder="Search Logo">
+
+   <div class="navbar-end">
+     <a class="navbar-item is-hidden-touch is-hidden-desktop-only" href="https://github.com/abranhe/programming-languages-logos" target="_blank">
+       <span class="icon" style="color: #333;">
+         <i class="fab fa-lg fa-github"></i>
+       </span>
+     </a>
+
+     <a class="navbar-item is-hidden-touch is-hidden-desktop-only" href="https://twitter.com/abranhe" target="_blank">
+       <span class="icon" style="color: #55acee;">
+         <i class="fab fa-lg fa-twitter"></i>
+       </span>
+     </a>
+   </div>
+ </div>
+ </div>
+</nav>
+
+  <br>
+    <ul class="languages">
+      {% comment %} This needs to match logos.scss. {% endcomment %}
+      {% assign files = site.static_files | sort:'path' %}
+      {% for lang in files %}
+        {% if lang.path contains '/languages/' %}
+          {% assign filename = lang.path | replace:'/languages/','' %}
+          {% assign name = filename | replace:'.png','' | replace:'+','--' %}
+          <li class="language" data-clipboard-text="{{ name }}">
+            <i class="programming lang-{{ name }}"></i> lang-<span class="name">{{ name }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>
+            <a class="has-text-grey" href="https://github.com/abranhe/programming-languages-logos">Programming Languages Logos</a>
+          </strong> by <a class="has-text-link" href="https://twitter.com/abranhe">@abranhe</a>. The source code is licensed uder
+          <a href="https://github.com/abranhe/programming-languages-logos/blob/master/license">MIT</a>.
+        </p>
+      </div>
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
+    <script src="public/script.js"></script>
+  </body>
+</html>

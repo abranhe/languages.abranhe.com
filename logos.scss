@@ -1,0 +1,24 @@
+---
+---
+
+.programming {
+  height: 1.5em;
+  width: 1.5em;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+{% comment %} This needs to match index.html. {% endcomment %}
+{% for lang in site.static_files %}
+  {% if lang.path contains '/languages/' %}
+    {% assign filename = lang.path | replace:'/languages/','' %}
+    {% assign name = filename | replace:'.png','' | replace:'+','--' %}
+    .lang-{{ name }} {
+      background-image: url('languages/{{ filename }}');
+    }
+  {% endif %}
+{% endfor %}
